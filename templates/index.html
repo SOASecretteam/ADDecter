@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block body %}
-<div class="jumbotron">
-        <h1 class="display-3">ADDector</h1>
-        <p class="lead">SOA 2018</p>
-        <hr class="my-4">
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-      </div>
-    {% endblock %}
+  {{ wtf.quick_form(form) }}
+  <blockquote class="blockquote text-left">
+      <p class="mb-0">{% if url %}the url you type is:{{ url }}{% else %} {% endif %}!</p>
+    </blockquote>
+{% endblock %}
+

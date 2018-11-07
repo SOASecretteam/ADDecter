@@ -1,8 +1,20 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,session, redirect, url_for
 from flask_script import Manager
+#bootstrap
+from flask_bootstrap import Bootstrap
+#Flask form
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 app=Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
 manager = Manager(app)
+bootstrap = Bootstrap(app)
+
+class UrlForm(FlaskForm):
+    url = StringField('Please Enter the picture url', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -12,10 +24,13 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
-
+    form = UrlForm()
+    if form.validate_on_submit():
+        session['url'] = form.url.data
+        return redirect(url_for('index'))
+    return render_template('index.html', form=form, url=session.get('url'))
 
 
 if __name__ == '__main__':
