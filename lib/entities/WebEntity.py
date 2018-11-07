@@ -1,5 +1,5 @@
-import lib.googleapi as googleapi
-import lib.testsample as testsample
+import lib.gateways.googleapi as googleapi
+import lib.gateways.testsample as testsample
 
 class WebEntity():
     def __init__(self,web_detection):
