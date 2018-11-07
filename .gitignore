@@ -2,3 +2,4 @@ config/api.json
 config/
 *.pyc 
 __pycache__
+data.sqlite
