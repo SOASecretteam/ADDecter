@@ -1,5 +1,5 @@
-import lib.googleapi as googleapi
-import lib.testsample as testsample
+import lib.gateways.googleapi as googleapi
+import lib.gateways.testsample as testsample
 web_detection=googleapi.annotate(testsample.pictureurl)
 class pages_with_matching_images():
     def __init__(self,web_detection):
