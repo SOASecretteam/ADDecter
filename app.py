@@ -63,19 +63,3 @@ def index():
 
 if __name__ == '__main__':
     manager.run()
-
-test_url=PictureURL(url='https://www.youtube.com/watch?v=zRwy8gtgJ1A')
-test_url2=PictureURL(url='https://github.com/bradtraversy/myflaskapp')
-test_url3=PictureURL(url='https://www.bootstrapcdn.com/bootswatch/')
-web=WebEntity(Entity='sky',website_id='test_url')
-web2=WebEntity(Entity='building',website_id='test_url2')
-web3=WebEntity(Entity='lake',website_id='test_url3')
-
-#db.session.add(test_url)
-#db.session.add(test_url2)
-#db.session.add(test_url3)
-#db.session.add(web)
-#db.session.add(web2)
-#db.session.add(web3)
-#db.session.commit()
-#print(test_url.id)
