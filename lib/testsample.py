@@ -1,1 +1,0 @@
-pictureurl = 'https://www.techjini.com/wp-content/uploads/2017/02/blog-front-page.png'
